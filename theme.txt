@@ -1,0 +1,97 @@
+Label{
+    activebackground: "#ffffff";
+    activeforeground: "#000000";
+    anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
+    foreground: "#ffffff";
+    background: "#aaaaaa";
+    borderwidth: 1px;
+    cursor: "arrow";
+    font: (12, "");
+    padx: 1px;
+    pady: 1px;
+    width: 30;
+    height: 30;
+    disabledforeground: "#aaaaa";
+    highlightbackground: "#fffff";
+    highlightcolor: "#000000";
+    highlightthickness: "#aaa";
+    justify: "left"; /*javailable options left, center, right*/
+    wraplength: 0;
+}
+
+Button{
+    activebackground: "#ffffff";
+    activeforeground: "#000000";
+    anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
+    foreground: "#ffffff";
+    background: "#aaaaaa";
+    borderwidth: 1px;
+    cursor: "arrow";
+    font: (12, "");
+    padx: 1px;
+    pady: 1px;
+    width: 30;
+    height: 30;
+    disabledforeground: "#aaaaa";
+    highlightbackground: "#fffff";
+    highlightcolor: "#000000";
+    highlightthickness: "#aaa";
+    justify: "left"; /*javailable options left, center, right*/
+    relief: flat;
+    wraplength: 0;
+}
+
+Entry{
+    activebackground: "#ffffff";
+    activeforeground: "#000000";
+    anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
+    foreground: "#ffffff";
+    background: "#aaaaaa";
+    borderwidth: 1px;
+    cursor: "arrow";
+    font: (12, "");
+    padx: 1px;
+    pady: 1px;
+    width: 30;
+    height: 30;
+    cursorbackground: "#afafaf"; /*insertbackground*/
+    cursorborderwidth: 1px; /*insertborderwidth*/
+    cursorwidth: 2px; /*insertwidth*/
+    disabledforeground: "#aaaaa";
+    highlightbackground: "#fffff";
+    highlightcolor: "#000000";
+    highlightthickness: "#aaa";
+    selectbackground: "#aaaaaa";
+    selectborderwidth: 2px;
+    selectforeground: "#pppppp";
+    justify: "left"; /*javailable options left, center, right*/
+    relief: flat;
+    wraplength: 0;
+}
+
+Checkbutton{
+    activebackground: "#ffffff";
+    activeforeground: "#000000";
+    anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
+    foreground: "#ffffff";
+    background: "#aaaaaa";
+    borderwidth: 1px;
+    cursor: "arrow";
+    font: (12, "");
+    padx: 1px;
+    pady: 1px;
+    width: 30;
+    height: 30;
+    disabledforeground: "#aaaaa";
+    highlightbackground: "#fffff";
+    highlightcolor: "#000000";
+    highlightthickness: "#aaa";
+    selectcolor: "#affsa";
+    justify: "left"; /*javailable options left, center, right*/
+    relief: flat;
+    wraplength: 0;
+}
+
+
+
+/**/
