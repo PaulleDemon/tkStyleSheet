@@ -10,11 +10,11 @@ Label{
     padx: 1px;
     pady: 1px;
     width: 30;
-    height: 30;
-    disabledforeground: "#aaaaa";
-    highlightbackground: "#fffff";
+    height: 3;
+    disabledforeground: "#e83225";
+    highlightbackground: "#ffffff";
     highlightcolor: "#000000";
-    highlightthickness: "#aaa";
+    highlightthickness: 1;
     justify: "left"; /*javailable options left, center, right*/
     wraplength: 0;
 }
@@ -31,45 +31,38 @@ Button{
     padx: 1px;
     pady: 1px;
     width: 30;
-    height: 30;
-    disabledforeground: "#aaaaa";
-    highlightbackground: "#fffff";
+    height: 3;
+    disabledforeground: "#e83225";
+    highlightbackground: "#ffffff";
     highlightcolor: "#000000";
-    highlightthickness: "#aaa";
+    highlightthickness: 1;
     justify: "left"; /*available options left, center, right*/
     relief: flat;
     wraplength: 0;
 }
 
 Entry{
-    activebackground: "#ffffff";
-    activeforeground: "#000000";
-    anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
     foreground: "#ffffff";
     background: "#e83225";
     borderwidth: 1px;
     cursor: "arrow";
     font: (12, "");
-    padx: 1px;
-    pady: 1px;
     width: 30;
-    height: 30;
     cursorbackground: "#afafaf"; /*insertbackground*/
     cursorborderwidth: 1px; /*insertborderwidth*/
     cursorwidth: 2px; /*insertwidth*/
-    disabledforeground: "#aaaaa";
-    highlightbackground: "#fffff";
+    disabledforeground: "#e83225";
+    highlightbackground: "#ffffff";
     highlightcolor: "#000000";
-    highlightthickness: "#aaa";
+    highlightthickness: 1;
     selectbackground: "#e83225";
     selectborderwidth: 2px;
-    selectforeground: "#pppppp";
+    selectforeground: "#1e19a8";
     justify: "left"; /*available options left, center, right*/
     relief: flat;
-    wraplength: 0;
 }
 
-Checkbutton{
+CheckButton{
     activebackground: "#ffffff";
     activeforeground: "#000000";
     anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
@@ -81,18 +74,18 @@ Checkbutton{
     padx: 1px;
     pady: 1px;
     width: 30;
-    height: 30;
-    disabledforeground: "#aaaaa";
-    highlightbackground: "#fffff";
+    height: 3;
+    disabledforeground: "#e83225";
+    highlightbackground: "#ffffff";
     highlightcolor: "#000000";
-    highlightthickness: "#aaa";
-    selectcolor: "#affsa";
+    highlightthickness: 1;
+    selectcolor: "#bebdde";
     justify: "left"; /*available options left, center, right*/
     relief: flat;
     wraplength: 0;
 }
 
-Radiobutton{
+RadioButton{
     activebackground: "#ffffff";
     activeforeground: "#000000";
     anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
@@ -104,12 +97,12 @@ Radiobutton{
     padx: 1px;
     pady: 1px;
     width: 30;
-    height: 30;
-    disabledforeground: "#aaaaa";
-    highlightbackground: "#fffff";
+    height: 3;
+    disabledforeground: "#e83225";
+    highlightbackground: "#ffffff";
     highlightcolor: "#000000";
-    highlightthickness: "#aaa";
-    selectcolor: "#affsa";
+    highlightthickness: 1;
+    selectcolor: "#bebdde";
     justify: "left"; /*available options left, center, right*/
     relief: flat;
     wraplength: 0;
@@ -125,18 +118,16 @@ Scale{
     font: (12, "");
     troughcolor: "#e83225";
     width: 30;
-    height: 30;
-    highlightbackground: "#fffff";
+    height: 3;
+    highlightbackground: "#ffffff";
     highlightcolor: "#000000";
-    highlightthickness: "#aaa";
+    highlightthickness: 1;
     justify: "left"; /*available options left, center, right*/
     relief: flat;
     wraplength: 0;
 }
 
 Scale{
-    activebackground: "#ffffff";
-    activeforeground: "#000000";
     foreground: "#ffffff";
     background: "#e83225";
     borderwidth: 1px;
@@ -144,13 +135,10 @@ Scale{
     font: (12, "");
     troughcolor: "#e83225";
     width: 30;
-    height: 30;
-    highlightbackground: "#fffff";
+    highlightbackground: "#ffffff";
     highlightcolor: "#000000";
-    highlightthickness: "#aaa";
-    justify: "left"; /*available options left, center, right*/
+    highlightthickness: 1;
     relief: flat;
-    wraplength: 0;
 }
 
 

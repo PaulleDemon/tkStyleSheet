@@ -32,7 +32,11 @@ def parse(stylesheet="") -> dict:
         word = property.split(';')
         word.remove('')
         for x in word:
-            new_dict[x.split(':')[0]] = x.split(':')[1].replace("\"", "")
+            word_split = x.split(':')
+            keys_ = word_split[0].replace("cursorbackground","insertbackground")\
+                .replace("cursorborderwidth", "insertborderwidth").replace("cursorwidth", "insertwidth")
+            new_dict[keys_] = word_split[1].replace("\"", "")
+
         # print(new_dict)
 
         key_words[key] = new_dict

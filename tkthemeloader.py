@@ -122,5 +122,6 @@ class Theme:
         self.style_sheet = stylesheet
 
         for key, values in keywords.items():
+            print("KEY: ", key)
             for x in self.widgets[key]:
                 x.config(values)
