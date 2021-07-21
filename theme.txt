@@ -204,5 +204,142 @@ PanedWindow{
     showhandle: true;/*bool value*/
 }
 
+Spinbox{
+    foreground: "#ffffff";
+    background: "#e83225";
+    borderwidth: 1px;
+    cursor: "arrow";
+    font: (12, "");
+    width: 30;
+    cursorbackground: "#afafaf"; /*insertbackground*/
+    cursorborderwidth: 1px; /*insertborderwidth*/
+    cursorwidth: 2px; /*insertwidth*/
+    disabledforeground: "#000000";
+    disabledbackground: "#e83225";
+    highlightbackground: "#ffffff";
+    highlightcolor: "#000000";
+    highlightthickness: 1;
+    selectbackground: "#e83225";
+    selectborderwidth: 2px;
+    selectforeground: "#1e19a8";
+    justify: "left"; /*available options left, center, right*/
+    relief: flat;
+    buttonbackground: "#5e2a26";
+    buttoncursor: "arrow";
+    buttondownrelief: flat;
+    buttonup: flat;
+ }
+
+/* todo: to complete this */
+OptionMenu{
+     foreground: "#ffffff";
+     background: "#e83225";
+}
+
+Canvas{
+    background: "#e83225";
+    borderwidth: 1;
+    cursor: "arrow";
+    highlightbackground: "#ffffff";
+    highlightcolor: "#000000";
+    highlightthickness: 1;
+    relief: flat;
+}
+
+Toplevel{
+    padx: 1;
+    pady: 2;
+    background: "#e83225";
+    borderwidth: 1px;
+    cursor: "arrow";
+    height: 30;
+    width: 30;
+    highlightbackground: "#ffffff";
+    highlightcolor: "#000000";
+    highlightthickness: 1;
+}
+
+Message{
+    aspect: 150;
+    borderwidth: 1;
+    background: "#e83225";
+    cursor: "arrow";
+    font: (14, "");
+    foreground: "#f0f0f0";
+    highlightbackground: "#ffffff";
+    highlightcolor: "#000000";
+    highlightthickness: 1;
+
+}
+
+ScrollBar{
+    activebackground: "#f0f0f0";
+    activerelief: "flat";
+    borderwidth: 1;
+    background: "#e83225";
+    cursor: "arrow";
+    highlightbackground: "#ffffff";
+    highlightcolor: "#000000";
+    highlightthickness: 1;
+    relief: "flat";
+    orient: "horizontal";
+    troughcolor: "#efefef";
+    width: 30;
+}
+
+Text{
+    foreground: "#ffffff";
+    background: "#e83225";
+    borderwidth: 1px;
+    cursor: "arrow";
+    font: (12, "");
+    width: 30;
+    cursorbackground: "#afafaf"; /*insertbackground*/
+    cursorborderwidth: 1px; /*insertborderwidth*/
+    cursorwidth: 2px; /*insertwidth*/
+    highlightbackground: "#ffffff";
+    highlightcolor: "#000000";
+    highlightthickness: 1;
+    selectbackground: "#e83225";
+    selectborderwidth: 2px;
+    selectforeground: "#1e19a8";
+    relief: "flat";
+    wrap: "char"; /*available options: "word", "none"*/
+}
+
+Menu{
+    foreground: "#ffffff";
+    background: "#e83225";
+    borderwidth: 1px;
+    cursor: "arrow";
+    activebackground: "#f0f0f0";
+    activeforeground: "#f0f0f1";
+    activeborderwidth: 1;
+    disabledforeground: "#000000";
+    font: (12, "");
+    selectcolor: "#e83225";
+}
+
+MenuButton{
+    foreground: "#ffffff";
+    background: "#e83225";
+    borderwidth: 1px;
+    cursor: "arrow";
+    activebackground: "#f0f0f0";
+    activeforeground: "#f0f0f1";
+    disabledforeground: "#000000";
+    font: (12, "");
+    anchor: "center";
+    direction: "left"; /*other options: right, above*/
+    height: 20;
+    highlightbackground: "#ffffff";
+    highlightcolor: "#000000";
+    highlightthickness: 1;
+    wraplength: 10;
+    relief: "flat";
+    justify: "left";
+    padx: 1;
+    pady: 1;
+}
 
 /**/
