@@ -30,17 +30,25 @@ class Theme:
         self.style_sheet = ""
         self.findChildren(parent)
 
+    # def findChildren(self, parent):
+    #
+    #     for child in parent.winfo_children():
+    #         self.append(child)
+    #         grand_child = child.winfo_children()
+    #         print("first: ", grand_child)
+    #         while grand_child:
+    #             for x in grand_child:
+    #                 grand_child = x.winfo_children()
+    #                 self.append(x)
+    #                 print(x)
+    #
+    #     print(self.widgets)
+
     def findChildren(self, parent):
 
-        for child in parent.winfo_children():
-            self.append(child)
-            grand_child = child.winfo_children()
-            while grand_child:
-                for x in grand_child:
-                    grand_child = x.winfo_children()
-                    self.append(x)
-
-        # print(self.widgets)
+        for x in parent.winfo_children():
+            self.append(x)
+            self.findChildren(x)
 
     def append(self, widget):
 
@@ -110,7 +118,6 @@ class Theme:
         with open(file_path, 'r') as fobj:
             style_sheet = fobj.read()
 
-        print("Sheet: ", style_sheet)
         self.setStylesheet(style_sheet)
 
     def styleSheet(self) -> str:
@@ -119,10 +126,9 @@ class Theme:
 
     def setStylesheet(self, stylesheet: str):
         keywords = tssparser.parse(stylesheet)
-        print(stylesheet)
+        print(keywords)
         self.style_sheet = stylesheet
-
+        print(self.widgets)
         for key, values in keywords.items():
-            print(key)
             for x in self.widgets[key]:
                 x.config(values)

@@ -1,4 +1,10 @@
 import tkinter as tk
+from tkthemeloader import Theme
+
+
+def top_level():
+    top = tk.Toplevel(root)
+    tk.Label(top, text="Top level").pack()
 
 
 def initLeftFrame():
@@ -20,6 +26,12 @@ def initLeftFrame():
 
     tk.Spinbox(left_lblFrame, from_=0, to=25).pack()
     tk.Scale(left_lblFrame, variable=tk.IntVar(), from_=1, to=50, orient='horizontal').pack()
+
+    tk.Message(left_lblFrame, text="This is a message label").pack()
+
+    tk.Button(left_lblFrame, text="Top-level", command=top_level).pack()
+    tk.Checkbutton(left_lblFrame, text="Video").pack()
+    tk.Radiobutton(left_lblFrame, text="Video").pack()
 
 
 def initRightFrame():
@@ -62,5 +74,8 @@ paned_window.add(right_frame)
 
 initLeftFrame()
 initRightFrame()
+
+theme = Theme(root)
+theme.loadStyleSheet("Themes/darktheme.tkss")
 
 root.mainloop()

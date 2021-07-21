@@ -1,0 +1,12 @@
+Label{
+    foreground: "#ffffff";
+    background: "#303030";
+    font: ("Arial", 14);
+}
+
+Button{
+    foreground: "#ffffff";
+    background: "#303030";
+    font: ("Arial", 14);
+}
+
