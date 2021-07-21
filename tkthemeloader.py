@@ -1,5 +1,5 @@
 import tkinter as tk
-
+import tssparser
 
 class Theme:
 
@@ -26,9 +26,7 @@ class Theme:
 
     def __init__(self, parent):
         self.parent = parent
-
-        # for x in self.parent.winfo_children():
-        #     print(x)
+        self.style_sheet = ""
         self.findChildren(parent)
 
     def findChildren(self, parent):
@@ -41,7 +39,7 @@ class Theme:
                     grand_child = x.winfo_children()
                     self.append(x)
 
-        print(self.widgets)
+        # print(self.widgets)
 
     def append(self, widget):
 
@@ -104,3 +102,25 @@ class Theme:
 
         else:
             print(f"Unknown widget: {widget}")
+
+    def loadStyleSheet(self, file_path):
+        """ provide a valid path to style sheet and it will be set"""
+        print(file_path)
+        with open(file_path, 'r') as fobj:
+            style_sheet = fobj.read()
+
+        print("Sheet: ", style_sheet)
+        self.setStylesheet(style_sheet)
+
+    def styleSheet(self) -> str:
+        """ returns the current stylesheet"""
+        return self.style_sheet
+
+    def setStylesheet(self, stylesheet: str):
+        keywords = tssparser.parse(stylesheet)
+        print(stylesheet)
+        self.style_sheet = stylesheet
+
+        for key, values in keywords.items():
+            for x in self.widgets[key]:
+                x.config(values)

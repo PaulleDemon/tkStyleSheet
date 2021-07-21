@@ -3,7 +3,7 @@ Label{
     activeforeground: "#000000";
     anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
     foreground: "#ffffff";
-    background: "#aaaaaa";
+    background: "#e83225";
     borderwidth: 1px;
     cursor: "arrow";
     font: (12, "");
@@ -24,7 +24,7 @@ Button{
     activeforeground: "#000000";
     anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
     foreground: "#ffffff";
-    background: "#aaaaaa";
+    background: "#e83225";
     borderwidth: 1px;
     cursor: "arrow";
     font: (12, "");
@@ -36,7 +36,7 @@ Button{
     highlightbackground: "#fffff";
     highlightcolor: "#000000";
     highlightthickness: "#aaa";
-    justify: "left"; /*javailable options left, center, right*/
+    justify: "left"; /*available options left, center, right*/
     relief: flat;
     wraplength: 0;
 }
@@ -46,7 +46,7 @@ Entry{
     activeforeground: "#000000";
     anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
     foreground: "#ffffff";
-    background: "#aaaaaa";
+    background: "#e83225";
     borderwidth: 1px;
     cursor: "arrow";
     font: (12, "");
@@ -61,10 +61,10 @@ Entry{
     highlightbackground: "#fffff";
     highlightcolor: "#000000";
     highlightthickness: "#aaa";
-    selectbackground: "#aaaaaa";
+    selectbackground: "#e83225";
     selectborderwidth: 2px;
     selectforeground: "#pppppp";
-    justify: "left"; /*javailable options left, center, right*/
+    justify: "left"; /*available options left, center, right*/
     relief: flat;
     wraplength: 0;
 }
@@ -74,7 +74,7 @@ Checkbutton{
     activeforeground: "#000000";
     anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
     foreground: "#ffffff";
-    background: "#aaaaaa";
+    background: "#e83225";
     borderwidth: 1px;
     cursor: "arrow";
     font: (12, "");
@@ -87,7 +87,68 @@ Checkbutton{
     highlightcolor: "#000000";
     highlightthickness: "#aaa";
     selectcolor: "#affsa";
-    justify: "left"; /*javailable options left, center, right*/
+    justify: "left"; /*available options left, center, right*/
+    relief: flat;
+    wraplength: 0;
+}
+
+Radiobutton{
+    activebackground: "#ffffff";
+    activeforeground: "#000000";
+    anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
+    foreground: "#ffffff";
+    background: "#e83225";
+    borderwidth: 1px;
+    cursor: "arrow";
+    font: (12, "");
+    padx: 1px;
+    pady: 1px;
+    width: 30;
+    height: 30;
+    disabledforeground: "#aaaaa";
+    highlightbackground: "#fffff";
+    highlightcolor: "#000000";
+    highlightthickness: "#aaa";
+    selectcolor: "#affsa";
+    justify: "left"; /*available options left, center, right*/
+    relief: flat;
+    wraplength: 0;
+}
+
+Scale{
+    activebackground: "#ffffff";
+    activeforeground: "#000000";
+    foreground: "#ffffff";
+    background: "#e83225";
+    borderwidth: 1px;
+    cursor: "arrow";
+    font: (12, "");
+    troughcolor: "#e83225";
+    width: 30;
+    height: 30;
+    highlightbackground: "#fffff";
+    highlightcolor: "#000000";
+    highlightthickness: "#aaa";
+    justify: "left"; /*available options left, center, right*/
+    relief: flat;
+    wraplength: 0;
+}
+
+Scale{
+    activebackground: "#ffffff";
+    activeforeground: "#000000";
+    foreground: "#ffffff";
+    background: "#e83225";
+    borderwidth: 1px;
+    cursor: "arrow";
+    font: (12, "");
+    troughcolor: "#e83225";
+    width: 30;
+    height: 30;
+    highlightbackground: "#fffff";
+    highlightcolor: "#000000";
+    highlightthickness: "#aaa";
+    justify: "left"; /*available options left, center, right*/
     relief: flat;
     wraplength: 0;
 }

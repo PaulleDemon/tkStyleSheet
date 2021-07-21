@@ -1,6 +1,24 @@
 import tkinter as tk
 from tkthemeloader import Theme
 
+style = """
+        Label{
+        activebackground: "#ffffff";
+        activeforeground: "#000000";
+        anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
+        foreground: "#ffffff";
+        background: "#000000";
+        }
+
+        Button{
+        activebackground: "#ffffff";
+        activeforeground: "#000000";
+        anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
+        foreground: "#ffffff";
+        }
+
+        """
+
 root = tk.Tk()
 
 tk.Label(root, text="label").pack(expand=1, fill='both')
@@ -40,5 +58,6 @@ tk.Scrollbar()
 tk.Text()
 
 theme = Theme(root)
+theme.loadStyleSheet(r"theme.txt")
 
 root.mainloop()
