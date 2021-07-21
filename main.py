@@ -1,23 +1,23 @@
 import tkinter as tk
 from tkthemeloader import Theme
 
-style = """
-        Label{
-        activebackground: "#ffffff";
-        activeforeground: "#000000";
-        anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
-        foreground: "#ffffff";
-        background: "#000000";
-        }
-
-        Button{
-        activebackground: "#ffffff";
-        activeforeground: "#000000";
-        anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
-        foreground: "#ffffff";
-        }
-
-        """
+# style = """
+#         Label{
+#         activebackground: "#ffffff";
+#         activeforeground: "#000000";
+#         anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
+#         foreground: "#ffffff";
+#         background: "#000000";
+#         }
+#
+#         Button{
+#         activebackground: "#ffffff";
+#         activeforeground: "#000000";
+#         anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
+#         foreground: "#ffffff";
+#         }
+#
+#         """
 
 root = tk.Tk()
 

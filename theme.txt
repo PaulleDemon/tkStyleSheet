@@ -6,7 +6,7 @@ Label{
     background: "#e83225";
     borderwidth: 1px;
     cursor: "arrow";
-    font: (12, "");
+    font: (1, "");
     padx: 1px;
     pady: 1px;
     width: 30;
@@ -141,6 +141,68 @@ Scale{
     relief: flat;
 }
 
+ListBox{
+    activestyle: 'underline'; /*other options: 'dotbox', 'none'*/
+    foreground: "#ffffff";
+    background: "#e83225";
+    borderwidth: 1px;
+    disabledforeground: 'red';
+    cursor: "arrow";
+    font: (12, "");
+    width: 30;
+    height: 14;
+    selectbackground: "#3fabcc";
+    selectborderwidth: 2;
+    selectforeground: "#c3d4d9";
+    highlightbackground: "#ffffff";
+    highlightcolor: "#000000";
+    highlightthickness: 1;
+    relief: flat;
+}
+
+Frame{
+    background: "#e83225";
+    borderwidth: 1px;
+    cursor: "clock";
+    width: 30;
+    height: 14;
+    highlightbackground: "#ffffff";
+    highlightcolor: "#000000";
+    highlightthickness: 1;
+    relief: flat;
+}
+
+LabelFrame{
+    foreground: "#ffffff";
+    background: "#e83225";
+    borderwidth: 1px;
+    labelanchor: "nw";/*options available: nw, n, ne, wn, w, ws, sw, s, se, en, e, es*/
+    cursor: "clock";
+    width: 30;
+    height: 14;
+    highlightbackground: "#ffffff";
+    highlightcolor: "#000000";
+    highlightthickness: 1;
+    relief: flat;
+    padx: 1;
+    pady: 2;
+}
+
+PanedWindow{
+    background: "#e83225";
+    borderwidth: 1px;
+    cursor: "clock";
+    width: 30;
+    height: 14;
+    relief: "flat";
+    handlepad: 3; /*distance between slash and handlepad*/
+    handlesize: 3;
+    orient: vertical;
+    sashpad: 0;
+    sashrelief: "flat";
+    sashwidth: 5;
+    showhandle: true;/*bool value*/
+}
 
 
 /**/

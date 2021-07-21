@@ -35,7 +35,7 @@ def parse(stylesheet="") -> dict:
             word_split = x.split(':')
             keys_ = word_split[0].replace("cursorbackground","insertbackground")\
                 .replace("cursorborderwidth", "insertborderwidth").replace("cursorwidth", "insertwidth")
-            new_dict[keys_] = word_split[1].replace("\"", "")
+            new_dict[keys_] = word_split[1].replace("\"", "").replace("\'", "")
 
         # print(new_dict)
 
