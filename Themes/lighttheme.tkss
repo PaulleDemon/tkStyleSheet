@@ -117,8 +117,8 @@ OptionMenu{
 }
 
 Menu{
-    foreground: "#ffffff";
-    background: "#303030";
+    foreground: "#000000";
+    background: "#bdbbbd";
     borderwidth: 0;
     activebackground: "#858383";
     activeforeground: "#ffffff";
@@ -146,8 +146,6 @@ Canvas{
     relief: "flat";
 }
 
-/* be careful with this widget if you make mistake in the value
- it will not throw error it will simply ignore the stylesheet*/
 ListBox{
     activestyle: 'dotbox';
     cursor: "plus";
@@ -157,6 +155,7 @@ ListBox{
     selectborderwidth: 0;
     selectforeground: "#ff0303";
     relief: "flat";
+    font: ("Ariel", 12);
 }
 
 /*might not work on windows.*/

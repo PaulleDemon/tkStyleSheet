@@ -30,6 +30,9 @@ Label#rightlabel{
     font: ("Arial", 15);
 }
 
+Toplevel>Label{
+}
+
 Button{
     foreground: "#ffffff";
     background: "#4d4949";
@@ -49,7 +52,6 @@ Entry{
     font: ("Arial", 12);
     selectbackground: "#827e7e";
     highlightthickness: 1;
-
 }
 
 Spinbox{

@@ -1,11 +1,26 @@
+# This is a full example containing almost every widget available in tkinter
+
 import tkinter as tk
-from tkthemeloader import Theme
+from tkstylesheet import Theme
+
+
+def changeTheme():
+    global darkTheme
+    darkTheme = not darkTheme
+    print("Dark theme: ", darkTheme)
+    if not darkTheme:
+        theme.loadStyleSheet("Themes/lighttheme.tkss")
+
+    else:
+        theme.loadStyleSheet("Themes/darktheme.tkss")
 
 
 def top_level():
     top = tk.Toplevel(root)
     top_lbl = tk.Label(top, text="Top level")
     top_lbl.pack()
+
+    tk.Button(top, text="changeTheme", command=changeTheme).pack()
 
     theme.reloadStyleSheet()
 
@@ -62,6 +77,8 @@ def initRightFrame():
 
 root = tk.Tk()
 
+darkTheme = True
+
 menubar = tk.Menu(root)
 root.config(menu=menubar)
 file = tk.Menu(menubar, tearoff=0)
@@ -84,7 +101,6 @@ initLeftFrame()
 initRightFrame()
 
 theme = Theme(root)
-# theme.loadStyleSheet("Themes/darktheme.tkss")
-theme.loadStyleSheet("Themes/lighttheme.tkss")
+theme.loadStyleSheet("Themes/darktheme.tkss")
 
 root.mainloop()
