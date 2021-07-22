@@ -1,7 +1,6 @@
 # Tkinter stylesheet - Tkss
 
-[![License](https://img.shields.io/badge/License%20-MIT-green.svg?style=flat&colorA=#1af041&colorB=007D8A)](https://opensource.org/licenses/MIT)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 This library helps you to write set style to tkinter default widget using stylesheet without
 much work.
@@ -10,7 +9,7 @@ much work.
 
 ```python
 from tkinter import *
-from tkstylesheet import Theme
+from tkstylesheet import TkssTheme
 
 _style = """
         Tk{
@@ -34,7 +33,7 @@ root = Tk()
 Label(root, text="label").pack()
 Button(root, text="Button").pack()
 
-theme = Theme(root)
+theme = TkssTheme(root)
 theme.setStylesheet(_style)  # pass as string
 
 root.mainloop()
@@ -43,7 +42,7 @@ root.mainloop()
 If you want to load tkss from a file:
 
 1. save you theme in a file
-2. load it using Theme().loadStyleSheet(file_path)
+2. load it using TkssTheme().loadStyleSheet(file_path)
 
 example:
 
@@ -67,14 +66,14 @@ project.py
 
 ```python
 from tkinter import *
-from tkstylesheet import Theme
+from tkstylesheet import TkssTheme
 
 root = Tk()
 
 Label(root, text="label").pack()
 Button(root, text="Button").pack()
 
-theme = Theme(root)
+theme = TkssTheme(root)
 theme.loadStyleSheet("theme.tkss")  # pass file path
 
 root.mainloop()

@@ -7,7 +7,7 @@ class TkStyleSheetError(Exception):
     pass
 
 
-class Theme:
+class TkssTheme:
     widgets = {
         "Tk": set(),
         "Label": set(),
@@ -20,10 +20,10 @@ class Theme:
         "Frame": set(),
         "LabelFrame": set(),
         "PanedWindow": set(),
-        "Spinbox": set(),
+        "SpinBox": set(),
         "OptionMenu": set(),
         "Canvas": set(),
-        "Toplevel": set(),
+        "TopLevel": set(),
         "Message": set(),
         "Menu": set(),
         "MenuButton": set(),
@@ -33,7 +33,7 @@ class Theme:
 
     def __init__(self, parent):
         self.parent = parent
-        self.style_sheet = ""
+        self._style_sheet = ""
         self.append(parent)
         self._findChildren(parent)
 
@@ -81,7 +81,7 @@ class Theme:
             self.widgets["PanedWindow"].add(widget)
 
         elif isinstance(widget, tk.Spinbox):
-            self.widgets["Spinbox"].add(widget)
+            self.widgets["SpinBox"].add(widget)
 
         elif isinstance(widget, tk.OptionMenu):
             self.widgets["OptionMenu"].add(widget)
@@ -90,7 +90,7 @@ class Theme:
             self.widgets["Canvas"].add(widget)
 
         elif isinstance(widget, tk.Toplevel):
-            self.widgets["Toplevel"].add(widget)
+            self.widgets["TopLevel"].add(widget)
 
         elif isinstance(widget, tk.Message):
             self.widgets["Message"].add(widget)
@@ -120,7 +120,7 @@ class Theme:
 
     def styleSheet(self) -> str:
         """ returns the current stylesheet"""
-        return self.style_sheet
+        return self._style_sheet
 
     def reloadStyleSheet(self):
         """ reloads the widgets and the styles sheets. Call this if you are dynamically creating widgets"""
@@ -128,13 +128,13 @@ class Theme:
         #     self.widgets[x] = set()
 
         self._findChildren(self.parent)
-        self.setStylesheet(self.style_sheet)
+        self.setStylesheet(self._style_sheet)
 
     def setStylesheet(self, stylesheet: str):
         """ sets the style sheet """
         keywords = parsetkss(stylesheet)
         # print(keywords)
-        self.style_sheet = stylesheet
+        self._style_sheet = stylesheet
         # print(self.widgets)
         for key, values in keywords.items():
             print(key)

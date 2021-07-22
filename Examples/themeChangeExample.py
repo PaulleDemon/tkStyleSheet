@@ -1,5 +1,5 @@
 from tkinter import *
-from tkstylesheet import Theme
+from tkstylesheet import TkssTheme
 
 _darkthemestyle = """
         Tk{
@@ -55,7 +55,7 @@ dark_theme = True
 Label(root, text="label").pack()
 Button(root, text="Change theme", command=changeTheme).pack()
 
-theme = Theme(root)
+theme = TkssTheme(root)
 theme.setStylesheet(_darkthemestyle)
 
 root.mainloop()

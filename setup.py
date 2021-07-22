@@ -5,7 +5,7 @@ with open("Readme.md", 'r') as f:
 
 setup(
     name='tkTimePicker',
-    version='0.0.0',
+    version='0.0.0_Beta',
     description="This library helps you to write set style to tkinter default widget using stylesheet without much "
                 "work.",
     license="MIT",

@@ -1,7 +1,7 @@
 # This is a full example containing almost every widget available in tkinter
 
 import tkinter as tk
-from tkstylesheet import Theme
+from tkstylesheet import TkssTheme
 
 
 def changeTheme():
@@ -100,7 +100,7 @@ paned_window.add(right_frame)
 initLeftFrame()
 initRightFrame()
 
-theme = Theme(root)
+theme = TkssTheme(root)
 theme.loadStyleSheet("Themes/darktheme.tkss")
 
 root.mainloop()

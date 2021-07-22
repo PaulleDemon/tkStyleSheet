@@ -2,7 +2,7 @@ Tk{
     background: "#e0dee0";
 }
 
-Toplevel{
+TopLevel{
     background: "#e0dee0";
 }
 
@@ -56,7 +56,7 @@ Entry{
 
 }
 
-Spinbox{
+SpinBox{
     foreground: "#000000";
     background: "#cfcfcf";
     cursorbackground: "#000000";
