@@ -1,10 +1,17 @@
+import re
+import ast
 import tkinter as tk
-import tssparser
+
+
+class TkssError(Exception):
+    pass
 
 
 class Theme:
 
-    widgets = {"Label": set(),
+    widgets = {
+               "Tk": set(),
+               "Label": set(),
                "Button": set(),
                "Entry": set(),
                "CheckButton": set(),
@@ -28,6 +35,7 @@ class Theme:
     def __init__(self, parent):
         self.parent = parent
         self.style_sheet = ""
+        self.append(parent)
         self.findChildren(parent)
 
     # def findChildren(self, parent):
@@ -52,7 +60,10 @@ class Theme:
 
     def append(self, widget):
 
-        if isinstance(widget, tk.Label):
+        if isinstance(widget, tk.Tk):
+            self.widgets["Tk"].add(widget)
+
+        elif isinstance(widget, tk.Label):
             self.widgets["Label"].add(widget)
 
         elif isinstance(widget, tk.Button):
@@ -125,10 +136,47 @@ class Theme:
         return self.style_sheet
 
     def setStylesheet(self, stylesheet: str):
-        keywords = tssparser.parse(stylesheet)
+        keywords = parse(stylesheet)
         print(keywords)
         self.style_sheet = stylesheet
         print(self.widgets)
         for key, values in keywords.items():
+            # print(key)
             for x in self.widgets[key]:
                 x.config(values)
+
+
+def parse(stylesheet="") -> dict:
+    new_line_replace = stylesheet.replace("\n", "")
+    space_replace = re.sub(r"\s+", "", new_line_replace, flags=re.UNICODE)
+    comments_removed = re.sub(r"/\*(.|\n)*?\*/", '', space_replace)
+
+    words = re.split(r"[{}]", comments_removed)
+    key_words = {words[x]: words[x + 1] for x in range(0, len(words) - 1, 2)}
+
+    for key, property in key_words.items():
+        new_dict = {}
+        word = property.split(';')
+        word.remove('')
+        for x in word:
+            word_split = x.split(':')
+            key_ = word_split[0].replace("cursorbackground", "insertbackground") \
+                .replace("cursorborderwidth", "insertborderwidth").replace("cursorwidth", "insertwidth")
+
+            value = word_split[1].replace("\"", "\'")
+
+            try:
+                value = ast.literal_eval(value)
+
+            except SyntaxError:
+                raise TkssError(f"Syntax error near '{key}{{...{key_}: {value}...}}'")
+
+            new_dict[key_] = value
+
+        # print(new_dict)
+
+        key_words[key] = new_dict
+
+    # print(key_words)
+
+    return key_words

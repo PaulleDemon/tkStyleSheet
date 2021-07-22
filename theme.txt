@@ -128,6 +128,7 @@ Scale{
 }
 
 Scale{
+    activebackground: "#ffffff";
     foreground: "#ffffff";
     background: "#e83225";
     borderwidth: 1px;
@@ -138,7 +139,9 @@ Scale{
     highlightbackground: "#ffffff";
     highlightcolor: "#000000";
     highlightthickness: 1;
-    relief: flat;
+    relief: "flat";
+    sliderrelief: "flat";
+    sliderlength: 30;
 }
 
 ListBox{
@@ -232,8 +235,14 @@ Spinbox{
 
 /* todo: to complete this */
 OptionMenu{
+     activebackground: "#595151";
+     activeforeground: "#595151";
      foreground: "#ffffff";
      background: "#e83225";
+     highlightbackground: "red"; /*This is the color of border*/
+     highlightcolor: "blue";
+     highlightthickness: 0;
+     relief: "flat";
 }
 
 Canvas{
@@ -285,6 +294,7 @@ ScrollBar{
     orient: "horizontal";
     troughcolor: "#efefef";
     width: 30;
+    elementborderwidth: 3;
 }
 
 Text{

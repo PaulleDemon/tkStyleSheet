@@ -16,7 +16,7 @@ def initLeftFrame():
     ent_lbl_frame = tk.Frame(left_lblFrame)
     ent_lbl_frame.pack()
 
-    tk.Label(ent_lbl_frame, text="Entry").pack(side='left')
+    tk.Label(ent_lbl_frame, text="Entry: ").pack(side='left')
     tk.Entry(ent_lbl_frame).pack(side='left', fill='x', expand=True)
 
     var = tk.StringVar()
@@ -25,7 +25,8 @@ def initLeftFrame():
     tk.OptionMenu(left_lblFrame, var, *options).pack()
 
     tk.Spinbox(left_lblFrame, from_=0, to=25).pack()
-    tk.Scale(left_lblFrame, variable=tk.IntVar(), from_=1, to=50, orient='horizontal').pack()
+    tk.Scale(left_lblFrame, variable=tk.IntVar(), from_=1, to=50, orient='horizontal', tickinterval=20, resolution=2)\
+        .pack(fill='x', expand=True)
 
     tk.Message(left_lblFrame, text="This is a message label").pack()
 
@@ -37,7 +38,7 @@ def initLeftFrame():
 def initRightFrame():
     tk.Label(right_frame, text="right Frame").pack()
     canvas = tk.Canvas(right_frame, height=50)
-    canvas.create_text(50, 20, text="This is a canvas")
+    canvas.create_text(80, 20, text="This is a canvas", fill='red', font=("Ariel", 15))
     canvas.pack()
     tk.Text(right_frame, height=10).pack()
 

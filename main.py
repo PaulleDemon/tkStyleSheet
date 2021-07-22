@@ -21,6 +21,7 @@ from tkthemeloader import Theme
 
 root = tk.Tk()
 
+
 tk.Label(root, text="label").pack(expand=1, fill='both')
 tk.Button(root, text="Button").pack(expand=1, fill='both')
 tk.Checkbutton(root, text="Check Button").pack(expand=1, fill='both')
