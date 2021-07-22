@@ -8,49 +8,34 @@ class TkssError(Exception):
 
 
 class Theme:
-
     widgets = {
-               "Tk": set(),
-               "Label": set(),
-               "Button": set(),
-               "Entry": set(),
-               "CheckButton": set(),
-               "RadioButton": set(),
-               "Scale": set(),
-               "ListBox": set(),
-               "Frame": set(),
-               "LabelFrame": set(),
-               "PanedWindow": set(),
-               "Spinbox": set(),
-               "OptionMenu": set(),
-               "Canvas": set(),
-               "Toplevel": set(),
-               "Message": set(),
-               "Menu": set(),
-               "MenuButton": set(),
-               "ScrollBar": set(),
-               "Text": set()
-               }
+        "Tk": set(),
+        "Label": set(),
+        "Button": set(),
+        "Entry": set(),
+        "CheckButton": set(),
+        "RadioButton": set(),
+        "Scale": set(),
+        "ListBox": set(),
+        "Frame": set(),
+        "LabelFrame": set(),
+        "PanedWindow": set(),
+        "Spinbox": set(),
+        "OptionMenu": set(),
+        "Canvas": set(),
+        "Toplevel": set(),
+        "Message": set(),
+        "Menu": set(),
+        "MenuButton": set(),
+        "ScrollBar": set(),
+        "Text": set()
+    }
 
     def __init__(self, parent):
         self.parent = parent
         self.style_sheet = ""
         self.append(parent)
         self.findChildren(parent)
-
-    # def findChildren(self, parent):
-    #
-    #     for child in parent.winfo_children():
-    #         self.append(child)
-    #         grand_child = child.winfo_children()
-    #         print("first: ", grand_child)
-    #         while grand_child:
-    #             for x in grand_child:
-    #                 grand_child = x.winfo_children()
-    #                 self.append(x)
-    #                 print(x)
-    #
-    #     print(self.widgets)
 
     def findChildren(self, parent):
 
@@ -139,11 +124,28 @@ class Theme:
         keywords = parse(stylesheet)
         print(keywords)
         self.style_sheet = stylesheet
-        print(self.widgets)
+        # print(self.widgets)
         for key, values in keywords.items():
-            # print(key)
-            for x in self.widgets[key]:
-                x.config(values)
+            print(key)
+            selector = key.split("#")
+            print(selector)
+            try:
+                for x in self.widgets[selector[0]]:
+                    # print("selector: ", selector, x)
+
+                    if len(selector) == 2:
+                        try:
+                            if x.object_id == selector[1]:
+                                x.config(values)
+
+                        except AttributeError:
+                            continue
+
+                    else:
+                        x.config(values)
+
+            except KeyError:
+                raise TkssError(f"Unknown widget '{key}'")
 
 
 def parse(stylesheet="") -> dict:

@@ -17,6 +17,15 @@ Label{
     font: ("Arial", 12);
 }
 
+Label#leftlabel{
+    foreground: "#0043fa";
+    font: ("Arial", 15);
+}
+Label#rightlabel{
+    foreground: "#dd00fa";
+    font: ("Arial", 15);
+}
+
 Button{
     foreground: "#ffffff";
     background: "#4d4949";
@@ -146,4 +155,10 @@ ScrollBar{
     highlightcolor: "red";
     highlightthickness: 1;
     troughcolor: "black";
+}
+
+PanedWindow{
+    sashwidth: 10;
+    background: "#141414";
+    borderwidth: 0;
 }

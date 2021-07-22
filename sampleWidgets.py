@@ -8,7 +8,9 @@ def top_level():
 
 
 def initLeftFrame():
-    tk.Label(left_frame, text="left Frame").pack()
+    leftlbl = tk.Label(left_frame, text="left Frame")
+    leftlbl.object_id = "leftlabel"
+    leftlbl.pack()
 
     left_lblFrame = tk.LabelFrame(left_frame, text="This is a label frame")
     left_lblFrame.pack(fill="both", expand=True)
@@ -36,7 +38,9 @@ def initLeftFrame():
 
 
 def initRightFrame():
-    tk.Label(right_frame, text="right Frame").pack()
+    right_lbl = tk.Label(right_frame, text="right Frame")
+    right_lbl.object_id = "rightlabel"
+    right_lbl.pack()
     canvas = tk.Canvas(right_frame, height=50)
     canvas.create_text(80, 20, text="This is a canvas", fill='red', font=("Ariel", 15))
     canvas.pack()
