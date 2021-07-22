@@ -4,11 +4,14 @@ from tkthemeloader import Theme
 
 def top_level():
     top = tk.Toplevel(root)
-    tk.Label(top, text="Top level").pack()
+    top_lbl = tk.Label(top, text="Top level")
+    top_lbl.pack()
+
+    theme.reloadStyleSheet()
 
 
 def initLeftFrame():
-    leftlbl = tk.Label(left_frame, text="left Frame")
+    leftlbl = tk.Label(left_frame, text="Left Frame")
     leftlbl.object_id = "leftlabel"
     leftlbl.pack()
 
@@ -32,13 +35,13 @@ def initLeftFrame():
 
     tk.Message(left_lblFrame, text="This is a message label").pack()
 
-    tk.Button(left_lblFrame, text="Top-level", command=top_level).pack()
-    tk.Checkbutton(left_lblFrame, text="Video").pack()
-    tk.Radiobutton(left_lblFrame, text="Video").pack()
+    tk.Button(left_lblFrame, text="Top-level Button", command=top_level).pack()
+    tk.Checkbutton(left_lblFrame, text="Check Button").pack()
+    tk.Radiobutton(left_lblFrame, text="Radio Button").pack()
 
 
 def initRightFrame():
-    right_lbl = tk.Label(right_frame, text="right Frame")
+    right_lbl = tk.Label(right_frame, text="Right Frame")
     right_lbl.object_id = "rightlabel"
     right_lbl.pack()
     canvas = tk.Canvas(right_frame, height=50)
@@ -81,6 +84,7 @@ initLeftFrame()
 initRightFrame()
 
 theme = Theme(root)
-theme.loadStyleSheet("Themes/darktheme.tkss")
+# theme.loadStyleSheet("Themes/darktheme.tkss")
+theme.loadStyleSheet("Themes/lighttheme.tkss")
 
 root.mainloop()

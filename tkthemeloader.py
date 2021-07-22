@@ -3,7 +3,7 @@ import ast
 import tkinter as tk
 
 
-class TkssError(Exception):
+class TkStyleSheetError(Exception):
     pass
 
 
@@ -35,15 +35,17 @@ class Theme:
         self.parent = parent
         self.style_sheet = ""
         self.append(parent)
-        self.findChildren(parent)
+        self._findChildren(parent)
 
-    def findChildren(self, parent):
+    def _findChildren(self, parent):
 
         for x in parent.winfo_children():
             self.append(x)
-            self.findChildren(x)
+            self._findChildren(x)
 
     def append(self, widget):
+
+        """ Appends widget to correct key"""
 
         if isinstance(widget, tk.Tk):
             self.widgets["Tk"].add(widget)
@@ -120,35 +122,51 @@ class Theme:
         """ returns the current stylesheet"""
         return self.style_sheet
 
+    def reloadStyleSheet(self):
+        """ reloads the widgets and the styles sheets. Call this if you are dynamically creating widgets"""
+        # for x in self.widgets:  # not necessary as set removes duplicates
+        #     self.widgets[x] = set()
+
+        self._findChildren(self.parent)
+        self.setStylesheet(self.style_sheet)
+
     def setStylesheet(self, stylesheet: str):
-        keywords = parse(stylesheet)
+        """ sets the style sheet """
+        keywords = parsetkss(stylesheet)
         print(keywords)
         self.style_sheet = stylesheet
         # print(self.widgets)
         for key, values in keywords.items():
             print(key)
             selector = key.split("#")
-            print(selector)
+            # print(selector)
             try:
-                for x in self.widgets[selector[0]]:
-                    # print("selector: ", selector, x)
 
-                    if len(selector) == 2:
-                        try:
-                            if x.object_id == selector[1]:
-                                x.config(values)
+                for x in self.widgets[selector[0]].copy():
+                    print("selector: ", selector, x)
+                    try:
+                        if len(selector) == 2:
+                            try:
+                                if x.object_id == selector[1]:
+                                    x.config(values)
 
-                        except AttributeError:
-                            continue
+                            except AttributeError:
+                                continue
 
-                    else:
-                        x.config(values)
+                        else:
+                            x.config(values)
+
+                    except tk.TclError:
+                        self.widgets[selector[0]].remove(x)
 
             except KeyError:
-                raise TkssError(f"Unknown widget '{key}'")
+                raise TkStyleSheetError(f"Unknown widget '{key}'")
 
 
-def parse(stylesheet="") -> dict:
+def parsetkss(stylesheet: str="") -> dict:
+
+    """ parses the tkss to dictionary"""
+
     new_line_replace = stylesheet.replace("\n", "")
     space_replace = re.sub(r"\s+", "", new_line_replace, flags=re.UNICODE)
     comments_removed = re.sub(r"/\*(.|\n)*?\*/", '', space_replace)
@@ -171,7 +189,7 @@ def parse(stylesheet="") -> dict:
                 value = ast.literal_eval(value)
 
             except SyntaxError:
-                raise TkssError(f"Syntax error near '{key}{{...{key_}: {value}...}}'")
+                raise TkStyleSheetError(f"Syntax error near '{key}{{...{key_}: {value}...}}'")
 
             new_dict[key_] = value
 

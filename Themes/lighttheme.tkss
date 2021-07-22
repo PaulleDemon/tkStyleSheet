@@ -1,23 +1,23 @@
 Tk{
-    background: "#303030";
+    background: "#e0dee0";
 }
 
 Toplevel{
-    background: "#303030";
+    background: "#e0dee0";
 }
 
 Frame{
-    background: "#303030";
+    background: "#e0dee0";
 }
 
 LabelFrame{
-    foreground: "#ffffff";
-    background: "#303030";
+    foreground: "#000000";
+    background: "#e0dee0";
 }
 
 Label{
-    foreground: "#ffffff";
-    background: "#303030";
+    foreground: "#000000";
+    background: "#e0dee0";
     font: ("Arial", 12);
 }
 
@@ -25,66 +25,70 @@ Label#leftlabel{
     foreground: "#0043fa";
     font: ("Arial", 15);
 }
+
 Label#rightlabel{
     foreground: "#dd00fa";
     font: ("Arial", 15);
 }
 
 Button{
-    foreground: "#ffffff";
-    background: "#4d4949";
-    activebackground: "#454242"; /*color when the widget is clicked*/
-    activeforeground: "#ffffff";
+    foreground: "#000000";
+    background: "#bdbbbd";
+    activebackground: "#d9d9d9"; /*color when the widget is clicked*/
+    activeforeground: "#000000";
     borderwidth: 2;
     font: ("Arial", 12);
     relief: "flat";
 }
 
 Entry{
-    foreground: "#ffffff";
-    background: "#454242";
+    foreground: "#000000";
+    background: "#cfcfcf";
     relief: "flat";
-    borderwidth: 2;
-    cursorbackground: "#ffffff";
+    borderwidth: 1;
+    cursorbackground: "#000000";
     font: ("Arial", 12);
-    selectbackground: "#827e7e";
+    selectbackground: "#859bb0";
+    selectforeground: "#000000";
+    highlightbackground: "#000000";
+    highlightcolor: "#000000";
     highlightthickness: 1;
 
 }
 
 Spinbox{
-    foreground: "#ffffff";
-    background: "#454242";
-    cursorbackground: "#ffffff";
-    selectbackground: "#827e7e";
+    foreground: "#000000";
+    background: "#cfcfcf";
+    cursorbackground: "#000000";
+    selectbackground: "#1e0aa3";
     font: ("Arial", 12);
-    buttonbackground: "#110a57";
+    buttonbackground: "#c4bebe";
     buttondownrelief: "flat";
     buttonup: "flat";
 }
 
 CheckButton{
-    foreground: "#ffffff";
-    background: "#454242";
-    selectcolor: "#161617";
+    foreground: "#000000";
+    background: "#cfcfcf";
+    selectcolor: "#cfcfcf";
     font: ("Arial", 12);
-    activebackground: "#454242"; /*color when the widget is clicked*/
-    activeforeground: "#ffffff";
+    activebackground: "#cfcfcf"; /*color when the widget is clicked*/
+    activeforeground: "#000000";
 }
 
 RadioButton{
-    foreground: "#ffffff";
-    background: "#454242";
-    selectcolor: "#161617";
+    foreground: "#000000";
+    background: "#cfcfcf";
+    selectcolor: "#cfcfcf";
     font: ("Arial", 12);
-    activebackground: "#454242"; /*color when the widget is clicked*/
-    activeforeground: "#ffffff";
+    activebackground: "#cfcfcf"; /*color when the widget is clicked*/
+    activeforeground: "#000000";
 }
 
 Scale{
-    foreground: "#ffffff";
-    activebackground: "#595151";
-    background: "#303030";
+    foreground: "#000000";
+    activebackground: "#d9d7d7";
+    background: "#cfcfcf";
     borderwidth: 1;
     highlightbackground: "red"; /*This is the color of border*/
     highlightcolor: "blue";
@@ -95,17 +99,17 @@ Scale{
 }
 
 Message{
-    foreground: "#ffffff";
-    background: "#303030";
+    foreground: "#000000";
+    background: "#e0dee0";
     font: ("Arial", 12);
 }
 
 OptionMenu{
-     foreground: "#ffffff";
-     background: "#454141";
+     foreground: "#000000";
+     background: "#bdbbbd";
      borderwidth: 1;
-     activebackground: "#595151";
-     activeforeground: "#ffffff";
+     activebackground: "#bdbbbd";
+     activeforeground: "#000000";
      highlightbackground: "#787575"; /*This is the color of border*/
      highlightcolor: "#787575";
      highlightthickness: 2;
@@ -124,29 +128,32 @@ Menu{
 }
 
 Text{
-    foreground: "#ffffff";
-    background: "#454242";
+    foreground: "#000000";
+    background: "#cfcfcf";
     relief: "flat";
     borderwidth: 2;
-    cursorbackground: "#ffffff";
+    cursorbackground: "#000000";
     font: ("Arial", 12);
-    selectbackground: "#827e7e";
+    selectbackground: "#859bb0";
+    selectforeground: "#000000";
     highlightbackground: "#1c1a1a";
     highlightcolor: "#1c1a1a";
     highlightthickness: 2;
 }
 
 Canvas{
-    background: "#454242";
+    background: "#cfcfcf";
     relief: "flat";
 }
 
+/* be careful with this widget if you make mistake in the value
+ it will not throw error it will simply ignore the stylesheet*/
 ListBox{
     activestyle: 'dotbox';
     cursor: "plus";
-    foreground: "#ffffff";
-    background: "#454242";
-    selectbackground: "#827e7e";
+    foreground: "#000000";
+    background: "#bdbbbd";
+    selectbackground: "#2840bd";
     selectborderwidth: 0;
     selectforeground: "#ff0303";
     relief: "flat";
@@ -165,6 +172,6 @@ ScrollBar{
 
 PanedWindow{
     sashwidth: 10;
-    background: "#141414";
+    background: "#ffffff";
     borderwidth: 0;
 }
