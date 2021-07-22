@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-This library helps you to write set style to tkinter default widget using stylesheet without
+This library helps you to set style to tkinter default widget using stylesheet without
 much work.
 
 **Quick Example:**
@@ -79,5 +79,5 @@ theme.loadStyleSheet("theme.tkss")  # pass file path
 root.mainloop()
 ```
 
-Please read further examples on how to switch theme etc. [here](Examples)
-
+Please read further examples on how to switch theme etc, [here](https://github.com/PaulleDemon/tkStyleSheet/tree/master/Examples).
+Refer stylesheets examples [here](https://github.com/PaulleDemon/tkStyleSheet/tree/master/Themes)
