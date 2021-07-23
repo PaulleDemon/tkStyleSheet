@@ -1,6 +1,6 @@
 # Tkss Documentation:
 
-### TkssTheme class:
+### TkThemeLoader class:
 
 
 | Methods             |               Arguments     |   Description                                                                          |
@@ -87,5 +87,22 @@ The above stylesheet will ensure that all the widgets will have `red` background
 For easier debugging of stylesheet `TkStyleSheetError` will be raised if there is a problem in the stylesheet. 
 It will also mention were the problem could be.
 
->####The way you write your stylesheet matters: 
-> If you have a label 
+####Important note on how stylesheets are applied:  
+ * The style sheet is applied sequentially. So you override a selector it will inherit the property
+    the previous selector requiring you to override the selector properties.
+   
+    Example:
+    ```
+    Label{
+            foreground: "red";
+            background: "white";
+    }
+        
+    Label{
+            background: "blue";
+    }    
+    ```    
+    On applying this stylesheet you will notice that the label has `red` foreground and `blue` background and not `white`
+
+
+To get the available options for each widget's read [themeOptions](theme_options.tkss). (note: some options are undocumented)

@@ -8,7 +8,10 @@ class TkStyleSheetError(Exception):
     pass
 
 
-class TkssTheme:
+class TkThemeLoader:
+
+    """ reads tk stylesheet and sets it to the widgets"""
+
     widgets = {
         "Tk": set(),
         "Label": set(),
@@ -182,7 +185,7 @@ def _parsetkss(stylesheet: str = "") -> dict:
     sel_dec = re.split(r"[{}]", cleanup)  # separates selector and declaration
     rule_set = [(sel_dec[x], sel_dec[x + 1]) for x in range(0, len(sel_dec) - 1, 2)]
 
-    rule_set = [(','.join(TkssTheme.widgets.keys()), y) if x == '*' else (x, y) for (x, y) in rule_set] # replaces wildcard
+    rule_set = [(','.join(TkThemeLoader.widgets.keys()), y) if x == '*' else (x, y) for (x, y) in rule_set] # replaces wildcard
 
     for index, (sels, dec) in enumerate(rule_set.copy()):
         # Evaluates expressions like Label, Button{...} and separates them and inserts them as new sel, declaration
@@ -194,12 +197,12 @@ def _parsetkss(stylesheet: str = "") -> dict:
         sel = sels.split(',')  # separating selectors
 
         if len(sel) > 1:
-            rule_set.remove((sels, dec))
-
             for s in sel:
                 rule_set.insert(index + 1, (s, dec))
 
-    new_options_values = {x: {} for (x, y) in rule_set}  # creates a dictionary with sel as keys
+            rule_set.remove((sels, dec))
+
+    new_sel_dec = {x: {} for (x, y) in rule_set}  # creates a dictionary with sel as keys
 
     for sel, declaration in rule_set.copy():
         temp_dict = {}
@@ -231,6 +234,6 @@ def _parsetkss(stylesheet: str = "") -> dict:
 
             temp_dict[tkssproperty] = value
 
-        new_options_values[sel].update(temp_dict)
+        new_sel_dec[sel].update(temp_dict)
 
-    return new_options_values
+    return new_sel_dec
