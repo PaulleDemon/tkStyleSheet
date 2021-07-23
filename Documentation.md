@@ -87,7 +87,7 @@ The above stylesheet will ensure that all the widgets will have `red` background
 For easier debugging of stylesheet `TkStyleSheetError` will be raised if there is a problem in the stylesheet. 
 It will also mention were the problem could be.
 
-####Important note on how stylesheets are applied:  
+#### Important note on how stylesheets are applied:  
  * The style sheet is applied sequentially. So you override a selector it will inherit the property
     the previous selector requiring you to override the selector properties.
    
