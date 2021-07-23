@@ -105,7 +105,7 @@ It will also mention were the problem could be.
     On applying this stylesheet you will notice that the label has `red` foreground and `blue` background and not `white`
 
 * Also, make sure you create the `TkThemeLoader(widget)` after you create all the child widgets. Else stylesheet might not be applied as expected. 
-  You can also reload the stylesheets if they are created dynamically or if you created the theme instances at the beginning using `theme.reloadStyleSheet()`. This 
-  will reload your stylesheet and apply to the new widgets that are created later on or during runtime.
+  You can also reload the stylesheets if they are created dynamically or if you created the theme instances at the beginning by using `theme.reloadStyleSheet()` method, this 
+  will reload your stylesheet and apply the style to the new widgets that are created later on or during runtime.
 
 To get the available options for each widget's read [themeOptions](theme_options.tkss). (note: some options are undocumented)
