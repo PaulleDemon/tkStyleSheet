@@ -4,11 +4,11 @@ Label{
     anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
-    font: (1, "");
-    padx: 1px;
-    pady: 1px;
+    font: ("Times New Roman", 12, "bold");
+    padx: 1;
+    pady: 1;
     width: 30;
     height: 3;
     disabledforeground: "#e83225";
@@ -25,11 +25,11 @@ Button{
     anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
-    font: (12, "");
-    padx: 1px;
-    pady: 1px;
+    font: ("Times New Roman", 12, "bold");
+    padx: 1;
+    pady: 1;
     width: 30;
     height: 3;
     disabledforeground: "#e83225";
@@ -44,19 +44,19 @@ Button{
 Entry{
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
-    font: (12, "");
+    font: ("Times New Roman", 12, "bold");
     width: 30;
     cursorbackground: "#afafaf"; /*insertbackground*/
-    cursorborderwidth: 1px; /*insertborderwidth*/
-    cursorwidth: 2px; /*insertwidth*/
+    cursorborderwidth: 1; /*insertborderwidth*/
+    cursorwidth: 2; /*insertwidth*/
     disabledforeground: "#e83225";
     highlightbackground: "#ffffff";
     highlightcolor: "#000000";
     highlightthickness: 1;
     selectbackground: "#e83225";
-    selectborderwidth: 2px;
+    selectborderwidth: 2;
     selectforeground: "#1e19a8";
     justify: "left"; /*available options left, center, right*/
     relief: flat;
@@ -68,11 +68,11 @@ CheckButton{
     anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
-    font: (12, "");
-    padx: 1px;
-    pady: 1px;
+    font: ("Times New Roman", 12, "bold");
+    padx: 1;
+    pady: 1;
     width: 30;
     height: 3;
     disabledforeground: "#e83225";
@@ -91,11 +91,11 @@ RadioButton{
     anchor: "center"; /*available anchors: nw, ne, n, w, e, sw, s, se*/
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
-    font: (12, "");
-    padx: 1px;
-    pady: 1px;
+    font: ("Times New Roman", 12, "bold");
+    padx: 1;
+    pady: 1;
     width: 30;
     height: 3;
     disabledforeground: "#e83225";
@@ -113,9 +113,9 @@ Scale{
     activeforeground: "#000000";
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
-    font: (12, "");
+    font: ("Times New Roman", 12, "bold");
     troughcolor: "#e83225";
     width: 30;
     height: 3;
@@ -131,9 +131,9 @@ Scale{
     activebackground: "#ffffff";
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
-    font: (12, "");
+    font: ("Times New Roman", 12, "bold");
     troughcolor: "#e83225";
     width: 30;
     highlightbackground: "#ffffff";
@@ -148,10 +148,10 @@ ListBox{
     activestyle: 'underline'; /*other options: 'dotbox', 'none'*/
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     disabledforeground: 'red';
     cursor: "arrow";
-    font: (12, "");
+    font: ("Times New Roman", 12, "bold");
     width: 30;
     height: 14;
     selectbackground: "#3fabcc";
@@ -165,7 +165,7 @@ ListBox{
 
 Frame{
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "clock";
     width: 30;
     height: 14;
@@ -178,7 +178,7 @@ Frame{
 LabelFrame{
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     labelanchor: "nw";/*options available: nw, n, ne, wn, w, ws, sw, s, se, en, e, es*/
     cursor: "clock";
     width: 30;
@@ -193,7 +193,7 @@ LabelFrame{
 
 PanedWindow{
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "clock";
     width: 30;
     height: 14;
@@ -210,20 +210,20 @@ PanedWindow{
 Spinbox{
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
-    font: (12, "");
+    font: ("Times New Roman", 12, "bold");
     width: 30;
     cursorbackground: "#afafaf"; /*insertbackground*/
-    cursorborderwidth: 1px; /*insertborderwidth*/
-    cursorwidth: 2px; /*insertwidth*/
+    cursorborderwidth: 1; /*insertborderwidth*/
+    cursorwidth: 2; /*insertwidth*/
     disabledforeground: "#000000";
     disabledbackground: "#e83225";
     highlightbackground: "#ffffff";
     highlightcolor: "#000000";
     highlightthickness: 1;
     selectbackground: "#e83225";
-    selectborderwidth: 2px;
+    selectborderwidth: 2;
     selectforeground: "#1e19a8";
     justify: "left"; /*available options left, center, right*/
     relief: flat;
@@ -259,7 +259,7 @@ Toplevel{
     padx: 1;
     pady: 2;
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
     height: 30;
     width: 30;
@@ -273,7 +273,7 @@ Message{
     borderwidth: 1;
     background: "#e83225";
     cursor: "arrow";
-    font: (14, "");
+    font: ("Times New Roman", 12, "bold");
     foreground: "#f0f0f0";
     highlightbackground: "#ffffff";
     highlightcolor: "#000000";
@@ -300,18 +300,18 @@ ScrollBar{
 Text{
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
-    font: (12, "");
+    font: ("Times New Roman", 12, "bold");
     width: 30;
     cursorbackground: "#afafaf"; /*insertbackground*/
-    cursorborderwidth: 1px; /*insertborderwidth*/
-    cursorwidth: 2px; /*insertwidth*/
+    cursorborderwidth: 1; /*insertborderwidth*/
+    cursorwidth: 2; /*insertwidth*/
     highlightbackground: "#ffffff";
     highlightcolor: "#000000";
     highlightthickness: 1;
     selectbackground: "#e83225";
-    selectborderwidth: 2px;
+    selectborderwidth: 2;
     selectforeground: "#1e19a8";
     relief: "flat";
     wrap: "char"; /*available options: "word", "none"*/
@@ -320,25 +320,25 @@ Text{
 Menu{
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
     activebackground: "#f0f0f0";
     activeforeground: "#f0f0f1";
     activeborderwidth: 1;
     disabledforeground: "#000000";
-    font: (12, "");
+    font: ("Times New Roman", 12, "bold");
     selectcolor: "#e83225";
 }
 
 MenuButton{
     foreground: "#ffffff";
     background: "#e83225";
-    borderwidth: 1px;
+    borderwidth: 1;
     cursor: "arrow";
     activebackground: "#f0f0f0";
     activeforeground: "#f0f0f1";
     disabledforeground: "#000000";
-    font: (12, "");
+    font: ("Times New Roman", 12, "bold");
     anchor: "center";
     direction: "left"; /*other options: right, above*/
     height: 20;

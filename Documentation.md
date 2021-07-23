@@ -1,6 +1,6 @@
 # Tkss Documentation:
 
-### TkssTheme class:
+### TkThemeLoader class:
 
 
 | Methods             |               Arguments     |   Description                                                                          |
@@ -51,7 +51,7 @@ Widgetname{
 /*This is an example of comment which will be ignored*/
 ```
 
-**Selectors:**
+**Using Id's:**
     You can add styles to specific widgets using `widgetname#object_id`
 
 python:
@@ -72,7 +72,37 @@ No spaces allowed in the "objectid".
 >Note: object id doesn't have to be unique. Multiple widgets can have the same id,
 > and it will be applied to all the widget that have the same object id.
 
+**wildcard:**
+    using `*` is considered wild card which will apply stylesheet to all the widgets.
+
+```
+*{
+    background: "red";
+}
+```
+The above stylesheet will ensure that all the widgets will have `red` background.
+
 **Debugging stylesheet:**
 
 For easier debugging of stylesheet `TkStyleSheetError` will be raised if there is a problem in the stylesheet. 
 It will also mention were the problem could be.
+
+####Important note on how stylesheets are applied:  
+ * The style sheet is applied sequentially. So you override a selector it will inherit the property
+    the previous selector requiring you to override the selector properties.
+   
+    Example:
+    ```
+    Label{
+            foreground: "red";
+            background: "white";
+    }
+        
+    Label{
+            background: "blue";
+    }    
+    ```    
+    On applying this stylesheet you will notice that the label has `red` foreground and `blue` background and not `white`
+
+
+To get the available options for each widget's read [themeOptions](theme_options.tkss). (note: some options are undocumented)

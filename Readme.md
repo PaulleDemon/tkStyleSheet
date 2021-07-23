@@ -9,7 +9,7 @@ much work.
 
 ```python
 from tkinter import *
-from tkstylesheet import TkssTheme
+from tkstylesheet import TkThemeLoader
 
 _style = """
         Tk{
@@ -33,7 +33,7 @@ root = Tk()
 Label(root, text="label").pack()
 Button(root, text="Button").pack()
 
-theme = TkssTheme(root)
+theme = TkThemeLoader(root)
 theme.setStylesheet(_style)  # pass as string
 
 root.mainloop()
@@ -42,7 +42,7 @@ root.mainloop()
 If you want to load tkss from a file:
 
 1. save you theme in a file
-2. load it using TkssTheme().loadStyleSheet(file_path)
+2. load it using TkThemeLoader().loadStyleSheet(file_path)
 
 example:
 
@@ -66,14 +66,14 @@ project.py
 
 ```python
 from tkinter import *
-from tkstylesheet import TkssTheme
+from tkstylesheet import TkThemeLoader
 
 root = Tk()
 
 Label(root, text="label").pack()
 Button(root, text="Button").pack()
 
-theme = TkssTheme(root)
+theme = TkThemeLoader(root)
 theme.loadStyleSheet("theme.tkss")  # pass file path
 
 root.mainloop()

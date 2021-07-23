@@ -1,15 +1,17 @@
-import collections
-import copy
 import re
 import ast
 import tkinter as tk
+import warnings
 
 
 class TkStyleSheetError(Exception):
     pass
 
 
-class TkssTheme:
+class TkThemeLoader:
+
+    """ reads tk stylesheet and sets it to the widgets"""
+
     widgets = {
         "Tk": set(),
         "Label": set(),
@@ -110,11 +112,11 @@ class TkssTheme:
             self.widgets["Text"].add(widget)
 
         else:
-            print(f"Unknown widget: {widget}")
+            warnings.warn(f"Unknown widget: {widget}")
 
     def loadStyleSheet(self, file_path):
         """ provide a valid path to style sheet and it will be set"""
-        # print(file_path)
+
         with open(file_path, 'r') as fobj:
             style_sheet = fobj.read()
 
@@ -134,18 +136,17 @@ class TkssTheme:
 
     def setStylesheet(self, stylesheet: str):
         """ sets the style sheet """
-        keywords = parsetkss(stylesheet)
-        # print(keywords)
+        keywords = _parsetkss(stylesheet)
         self._style_sheet = stylesheet
-        # print(self.widgets)
+
         for key, values in keywords.items():
-            print(key)
+
             selector = key.split("#")
-            # print(selector)
+
             try:
 
                 for x in self.widgets[selector[0]].copy():
-                    # print("selector: ", selector, x, values)
+
                     try:
                         if len(selector) == 2:
                             try:
@@ -159,12 +160,15 @@ class TkssTheme:
                             x.config(values)
 
                     except tk.TclError as e:
-                        print("ERROR: ", e)
+
                         if "unknown option" in f"{e}":
                             raise TkStyleSheetError(f"{e} in '{key}'")
 
+                        elif "unknown color name" in f"{e}":
+                            raise TkStyleSheetError(f"{e} in '{key}'")
+
                         elif "invalid command name" in f"{e}":
-                            self.widgets[selector[0]].remove(x)
+                            self.widgets[selector[0]].remove(x)  # removes the item it the item has been destroyed
 
                         else:
                             raise tk.TclError(e)
@@ -173,60 +177,63 @@ class TkssTheme:
                 raise TkStyleSheetError(f"Unknown widget '{key}'")
 
 
-def parsetkss(stylesheet: str = "") -> dict:
-    """ parses the tkss to dictionary"""
+def _parsetkss(stylesheet: str = "") -> dict:
+    """ parses the tkss and returns dictionary"""
 
-    new_line_replace = stylesheet.replace("\n", "")
-    space_replace = re.sub(r"\s+", "", new_line_replace, flags=re.UNICODE)
-    comments_removed = re.sub(r"/\*(.|\n)*?\*/", '', space_replace)
+    cleanup = re.sub(r"[\n\r\s]+|/\*(.|\n)*?\*/", "", stylesheet)  # removes comments, newlines and white spaces
 
-    split_brackets = re.split(r"[{}]", comments_removed)
-    option_values = [(split_brackets[x], split_brackets[x + 1]) for x in range(0, len(split_brackets) - 1, 2)]
+    sel_dec = re.split(r"[{}]", cleanup)  # separates selector and declaration
+    rule_set = [(sel_dec[x], sel_dec[x + 1]) for x in range(0, len(sel_dec) - 1, 2)]
 
-    for index, (key, values) in enumerate(option_values.copy()):  # evaluates expressions like Label, Button{}
+    rule_set = [(','.join(TkThemeLoader.widgets.keys()), y) if x == '*' else (x, y) for (x, y) in rule_set] # replaces wildcard
 
-        _key = key.split(',')
-        if len(_key) > 1:
-            option_values.remove((key, values))
+    for index, (sels, dec) in enumerate(rule_set.copy()):
+        # Evaluates expressions like Label, Button{...} and separates them and inserts them as new sel, declaration
 
-            for x in _key:
-                option_values.insert(index+1, (x, values))
+        if dec == "":  # removes the element if there is nothing in the declaration block
+            rule_set.remove((sels, dec))
+            continue
 
-    # print("Option values: ", option_values)
-    new_options_values = {x: {} for (x, y) in option_values}
+        sel = sels.split(',')  # separating selectors
 
-    for key, property in option_values.copy():
-        # print("KEY: ", key)
-        new_dict = {}
-        word = property.split(';')
+        if len(sel) > 1:
+            for s in sel:
+                rule_set.insert(index + 1, (s, dec))
+
+            rule_set.remove((sels, dec))
+
+    new_sel_dec = {x: {} for (x, y) in rule_set}  # creates a dictionary with sel as keys
+
+    for sel, declaration in rule_set.copy():
+        temp_dict = {}
+        word = declaration.split(';')
 
         try:
             word.remove('')
 
         except ValueError:
-            raise TkStyleSheetError(f"Error in or near '{key}'")
+            raise TkStyleSheetError(f"Error in or near '{sel}'")
 
         for x in word:
-            word_split = x.split(':')
-            key_ = word_split[0].replace("cursorbackground", "insertbackground") \
-                .replace("cursorborderwidth", "insertborderwidth").replace("cursorwidth", "insertwidth")
 
-            value = word_split[1].replace("\"", "\'")
+            try:
+                word_split = x.split(':')
+                tkssproperty = word_split[0].replace("cursorbackground", "insertbackground") \
+                    .replace("cursorborderwidth", "insertborderwidth").replace("cursorwidth", "insertwidth")
+
+                value = word_split[1].replace("\"", "\'")
+
+            except IndexError:
+                raise TkStyleSheetError(f"Error near '{sel}'")
 
             try:
                 value = ast.literal_eval(value)
 
-            except SyntaxError:
-                raise TkStyleSheetError(f"Syntax error near '{key}{{...{key_}: {value}...}}'")
+            except (SyntaxError, ValueError, IndexError):
+                raise TkStyleSheetError(f"Syntax error near '{sel}{{...{tkssproperty}: {word_split[1]}...}}'")
 
-            new_dict[key_] = value
+            temp_dict[tkssproperty] = value
 
-        # print(new_dict.items())
+        new_sel_dec[sel].update(temp_dict)
 
-        new_options_values[key].update(new_dict)
-        # new_options_values.update({key: new_dict})
-
-    import pprint
-    pprint.pprint(new_options_values)
-
-    return new_options_values
+    return new_sel_dec
