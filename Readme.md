@@ -9,7 +9,7 @@ much work.
 
 ```python
 from tkinter import *
-from Stylesheet.tkstylesheet import TkThemeLoader
+from tkstylesheet import TkThemeLoader
 
 _style = """
         Tk{
@@ -66,7 +66,7 @@ project.py
 
 ```python
 from tkinter import *
-from Stylesheet.tkstylesheet import TkThemeLoader
+from tkstylesheet import TkThemeLoader
 
 root = Tk()
 

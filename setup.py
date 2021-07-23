@@ -4,10 +4,9 @@ with open("Readme.md", 'r') as f:
     long_description = f.read()
 
 setup(
-    name='tkTimePicker',
-    version='0.0.0_Beta',
-    description="This library helps you to write set style to tkinter default widget using stylesheet without much "
-                "work.",
+    name='tkstylesheet',
+    version='0.0.1',
+    description="This library helps you to set style to tkinter default widget using stylesheet with ease.",
     license="MIT",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -23,7 +22,7 @@ setup(
         "Programming Language :: Python :: 3.10"
     ],
     keywords=['tkinter', 'stylesheet', 'tkss', 'tkinter stylesheet'],
-    packages=["Stylesheet"],
+    packages=["tkstylesheet"],
     include_package_data=True,
     python_requires='>=3.6',
 )
