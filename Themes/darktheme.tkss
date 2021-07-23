@@ -29,11 +29,7 @@ Label#leftlabel, Label#rightlabel{
 Label#rightlabel{
     font: ("Times", 20);
 }
-
-/* todo: here
-Toplevel>Label{
-}
-*/
+/**/
 Button{
     foreground: "#ffffff";
     background: "#4d4949";

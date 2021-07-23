@@ -51,7 +51,7 @@ Widgetname{
 /*This is an example of comment which will be ignored*/
 ```
 
-**Selectors:**
+**Using Id's:**
     You can add styles to specific widgets using `widgetname#object_id`
 
 python:
@@ -72,7 +72,20 @@ No spaces allowed in the "objectid".
 >Note: object id doesn't have to be unique. Multiple widgets can have the same id,
 > and it will be applied to all the widget that have the same object id.
 
+**wildcard:**
+    using `*` is considered wild card which will apply stylesheet to all the widgets.
+
+```
+*{
+    background: "red";
+}
+```
+The above stylesheet will ensure that all the widgets will have `red` background.
+
 **Debugging stylesheet:**
 
 For easier debugging of stylesheet `TkStyleSheetError` will be raised if there is a problem in the stylesheet. 
 It will also mention were the problem could be.
+
+>####The way you write your stylesheet matters: 
+> If you have a label 
