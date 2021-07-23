@@ -1,5 +1,3 @@
-import collections
-import copy
 import re
 import ast
 import tkinter as tk
