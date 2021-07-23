@@ -2,14 +2,14 @@ Tk{
     background: "#303030";
 }
 
-TopLevel{
+TopLevel, Frame{
     background: "#303030";
 }
 
-Frame{
+/*Frame{
     background: "#303030";
 }
-
+*/
 LabelFrame{
     foreground: "#ffffff";
     background: "#303030";
@@ -21,13 +21,13 @@ Label{
     font: ("Arial", 12);
 }
 
-Label#leftlabel{
+Label#leftlabel, Label#rightlabel{
     foreground: "#0043fa";
     font: ("Arial", 15);
 }
+
 Label#rightlabel{
-    foreground: "#dd00fa";
-    font: ("Arial", 15);
+    font: ("Times", 20);
 }
 
 /* todo: here

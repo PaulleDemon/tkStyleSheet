@@ -1,3 +1,5 @@
+import collections
+import copy
 import re
 import ast
 import tkinter as tk
@@ -39,9 +41,9 @@ class TkssTheme:
 
     def _findChildren(self, parent):
 
-        for x in parent.winfo_children():
-            self.append(x)
-            self._findChildren(x)
+        for child in parent.winfo_children():
+            self.append(child)
+            self._findChildren(child)
 
     def append(self, widget):
 
@@ -143,7 +145,7 @@ class TkssTheme:
             try:
 
                 for x in self.widgets[selector[0]].copy():
-                    # print("selector: ", selector, x)
+                    # print("selector: ", selector, x, values)
                     try:
                         if len(selector) == 2:
                             try:
@@ -178,10 +180,23 @@ def parsetkss(stylesheet: str = "") -> dict:
     space_replace = re.sub(r"\s+", "", new_line_replace, flags=re.UNICODE)
     comments_removed = re.sub(r"/\*(.|\n)*?\*/", '', space_replace)
 
-    words = re.split(r"[{}]", comments_removed)
-    option_values = {words[x]: words[x + 1] for x in range(0, len(words) - 1, 2)}
+    split_brackets = re.split(r"[{}]", comments_removed)
+    option_values = [(split_brackets[x], split_brackets[x + 1]) for x in range(0, len(split_brackets) - 1, 2)]
 
-    for key, property in option_values.items():
+    for index, (key, values) in enumerate(option_values.copy()):  # evaluates expressions like Label, Button{}
+
+        _key = key.split(',')
+        if len(_key) > 1:
+            option_values.remove((key, values))
+
+            for x in _key:
+                option_values.insert(index+1, (x, values))
+
+    # print("Option values: ", option_values)
+    new_options_values = {x: {} for (x, y) in option_values}
+
+    for key, property in option_values.copy():
+        # print("KEY: ", key)
         new_dict = {}
         word = property.split(';')
 
@@ -206,10 +221,12 @@ def parsetkss(stylesheet: str = "") -> dict:
 
             new_dict[key_] = value
 
-        # print(new_dict)
+        # print(new_dict.items())
 
-        option_values[key] = new_dict
+        new_options_values[key].update(new_dict)
+        # new_options_values.update({key: new_dict})
 
-    # print(option_values)
+    import pprint
+    pprint.pprint(new_options_values)
 
-    return option_values
+    return new_options_values
