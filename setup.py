@@ -23,7 +23,7 @@ setup(
         "Programming Language :: Python :: 3.10"
     ],
     keywords=['tkinter', 'stylesheet', 'tkss', 'tkinter stylesheet'],
-    py_modules=["tkstylesheet.py"],
+    packages=["Stylesheet"],
     include_package_data=True,
     python_requires='>=3.6',
 )

@@ -1,7 +1,7 @@
 # This is a full example containing almost every widget available in tkinter
 
 import tkinter as tk
-from tkstylesheet import TkThemeLoader
+from Stylesheet.tkstylesheet import TkThemeLoader
 
 
 def changeTheme():

@@ -10,7 +10,7 @@ class TkStyleSheetError(Exception):
 
 class TkThemeLoader:
 
-    """ reads tk stylesheet and sets it to the widgets"""
+    """ Reads tk stylesheet and sets it to the widgets """
 
     widgets = {
         "Tk": set(),

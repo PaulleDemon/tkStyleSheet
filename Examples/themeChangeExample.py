@@ -1,5 +1,5 @@
 from tkinter import *
-from tkstylesheet import TkThemeLoader
+from Stylesheet.tkstylesheet import TkThemeLoader
 
 _darkthemestyle = """
         Tk{
