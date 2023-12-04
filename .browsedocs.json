@@ -1,0 +1,17 @@
+{
+    "version": "0.0.1",
+    "unique_name": "tkstylesheet",
+    "project_name": "tkStyleSheet",
+    "about": "This library helps you to set style to tkinter default widget using stylesheet without much work.",
+    "source": "Documentation.md",    
+    "source_code": "https://github.com/PaulleDemon/tkTimePicker",
+    "doc_type": "pgm-lng",
+    "additional_links": {
+        "Examples": "https://github.com/PaulleDemon/tkStyleSheet/tree/master/Examples"
+    },
+    "tags": "python, tkinter, tkstylesheet",
+    "sponsor": {
+        "github": "PaulleDemon",
+        "buymeacoffee": "artpaul"
+    }
+}
