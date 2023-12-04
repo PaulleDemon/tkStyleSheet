@@ -1,6 +1,41 @@
-# Tkss Documentation:
+### Quickstart
 
-### TkThemeLoader class:
+Here is a quick example to get you started.
+
+```py
+from tkinter import *
+from tkstylesheet import TkThemeLoader
+
+_style = """
+        Tk{
+            background: "#565657"; /*background color of the root widget*/
+        }
+        
+        Label{
+            foreground: "#ebebeb";
+            background: "#565657";
+        }
+        
+        Button{
+            foreground: "#ebebeb";
+            background: "#565657";
+        }
+        
+        """
+
+root = Tk()
+
+Label(root, text="label").pack()
+Button(root, text="Button").pack()
+
+theme = TkThemeLoader(root)
+theme.setStylesheet(_style)  # pass as string
+
+root.mainloop()
+```
+read more examples [here](https://github.com/PaulleDemon/tkStyleSheet/tree/master/Examples)
+
+### TkThemeLoader class
 
 
 | Methods             |               Arguments     |   Description                                                                          |
@@ -38,7 +73,7 @@ Available widgets and their equivalent stylesheet name:
 
 > note: Style sheet will be applied to the children of the provided parent (in the init method).
 
-### Stylesheet syntax:
+### Stylesheet syntax
 
 **To style a widget:**
 ```
@@ -52,7 +87,7 @@ Widgetname{
 ```
 
 **Using Id's:**
-    You can add styles to specific widgets using `widgetname#object_id`
+You can add styles to specific widgets using `widgetname#object_id`
 
 python:
 ```python
@@ -87,22 +122,22 @@ The above stylesheet will ensure that all the widgets will have `red` background
 For easier debugging of stylesheet `TkStyleSheetError` will be raised if there is a problem in the stylesheet. 
 It will also mention were the problem could be.
 
-#### Important note on how stylesheets are applied:  
+#### Important note on how stylesheets are applied
  * The style sheet is applied sequentially. So you override a selector it will inherit the property
     the previous selector requiring you to override the selector properties.
    
-    Example:
-    ```
-    Label{
-            foreground: "red";
-            background: "white";
-    }
+Example:
+```
+Label{
+    foreground: "red";
+    background: "white";
+}
         
-    Label{
-            background: "blue";
-    }    
-    ```    
-    On applying this stylesheet you will notice that the label has `red` foreground and `blue` background and not `white`
+Label{
+    background: "blue";
+}    
+```    
+On applying this stylesheet you will notice that the label has `red` foreground and `blue` background and not `white`
 
 * Also, make sure you create the `TkThemeLoader(widget)` after you create all the child widgets. Else stylesheet might not be applied as expected. 
   You can also reload the stylesheets if they are created dynamically or if you created the theme instances at the beginning by using `theme.reloadStyleSheet()` method, this 
