@@ -82,4 +82,4 @@ root.mainloop()
 Please read further examples on how to switch theme etc, [here](https://github.com/PaulleDemon/tkStyleSheet/tree/master/Examples).
 Refer stylesheets examples [here](https://github.com/PaulleDemon/tkStyleSheet/tree/master/Examples/Themes)
 
-Documentation [here](https://browsedocs.com/QgtXzM0pg1Fr)
+Documentation [here](https://github.com/PaulleDemon/tkStyleSheet/blob/master/Documentation.md)
